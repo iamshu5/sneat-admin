@@ -7,6 +7,9 @@
 
     <title>{{ $title }} - System</title>
 
+    {{-- Loading --}}
+    <link rel="stylesheet" href="assets/css/loading.css">
+
     <meta name="description" content="" />
 
     <!-- Favicon -->
@@ -40,6 +43,11 @@
   </head>
 
   <body>
+
+    {{-- Loading --}}
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+    </div>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -164,7 +172,7 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
             {{-- Clock --}}
-            <span class="ml-md-3 font-italic fw-bold" id="clock-realtime"> <?= date('Y-m-d H:i:s') ?> </span>
+            <i class='bx bx-time' ></i> <span class="ml-md-3 font-italic fw-bold" id="clock-realtime"> <?= date('Y-m-d H:i:s') ?> </span>
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->

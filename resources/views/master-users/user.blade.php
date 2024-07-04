@@ -15,7 +15,7 @@
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-info shadow-sm btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#ModalTambah">
-                                TAMBAH USER
+                                <i class='bx bx-user-plus' ></i> TAMBAH USER
                             </button>
                         </div>
                     {{-- @endif --}}
@@ -26,8 +26,8 @@
                     @if (session()->exists('alert'))
                         <div class="alert alert-{{ session()->get('alert') ['bg'] }} alert-dismissible fade show" role="alert">
                             {{ session()->get('alert') ['message'] }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"></span>
                             </button>
                         </div>
                     @endif
@@ -37,8 +37,8 @@
                             @foreach ($errors->all() as $error )
                                 {{ $error }}
                             @endforeach
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"></span>
                             </button>
                         </div>
                     @endif
@@ -72,8 +72,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="exampleModalLabel">Form Tambah User</h1>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
 
@@ -139,10 +139,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success shadow-sm"><i
-                        class="ti ti-checklist"></i> Save</button>
-                    <button type="reset" class="btn btn-outline-danger shadow-sm"><i
-                        class="ti ti-refresh"></i> Reset</button>
+                    <button type="submit" class="btn btn-success shadow-sm"><i class='bx bx-save' ></i> Save</button>
+                    <button type="reset" class="btn btn-outline-danger shadow-sm"><i class='bx bx-reset' ></i> Reset</button>
                 </div>
             </form>
         </div>

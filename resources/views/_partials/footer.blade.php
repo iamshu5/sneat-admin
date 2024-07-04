@@ -53,8 +53,8 @@
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-{{-- CLOCK --}}
 <script>
+// CLOCK
     function fixNumClock(num) {
         return num < 10 ? '0' + num : num;
     }
@@ -104,8 +104,26 @@
         }, 1000);
     }
     initClock();
+// END CLOCK
+
+// LOADING
+document.addEventListener('DOMContentLoaded', function() {
+  const loadingElement = document.getElementById('loading');
+  const contentElement = document.getElementById('content');
+
+  window.addEventListener('load', function() {
+    loadingElement.classList.add('fade-out');
+    contentElement.classList.add('show');
+
+    // Remove the loading element after the transition
+    setTimeout(() => {
+      loadingElement.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restore scrollbars
+    }, 200); // Match the CSS transition duration
+  });
+});
+// END LOADING
 </script> 
-{{-- END CLOCK --}}
 
 </body>
 </html>
