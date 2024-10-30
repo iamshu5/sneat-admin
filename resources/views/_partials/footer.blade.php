@@ -9,10 +9,7 @@
       <script>
         document.write(new Date().getFullYear());
       </script>
-      <a href="#" target="_blank" class="footer-link fw-medium">Company Profile</a>
-    </div>
-    <div class="d-none d-lg-inline-block">
-      <a href="#" class="footer-link me-4" target="_blank">Test</a>
+      <a href="https://www.arthatech.co.id/" target="_blank" class="footer-link fw-medium">ATi</a>
     </div>
   </div>
 </footer>
@@ -32,6 +29,11 @@
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="{{ url('assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ url('assets/vendor/libs/popper/popper.js') }}"></script>
@@ -123,6 +125,44 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 // END LOADING
+
+document.addEventListener('DOMContentLoaded', function () {
+    const signalIndicator = document.getElementById('signal-indicator');
+    let previousStatus = navigator.onLine ? 'online' : 'offline';
+
+    function updateSignalStatus(status) {
+        if (status === 'online') {
+            signalIndicator.classList.remove('bg-danger', 'bg-warning');
+            signalIndicator.classList.add('bg-success');
+
+            if (previousStatus === 'offline') {
+                Swal.fire({
+                    title: "Internert Terhubung Kembali",
+                    text: "Kembali Online!",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+            }
+        } else if (status === 'offline') {
+            signalIndicator.classList.remove('bg-success', 'bg-warning');
+            signalIndicator.classList.add('bg-danger');
+
+            Swal.fire({
+                title: "Internet Hilang",
+                text: "Tidak terhubung ke internet!",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 5000
+            });
+        }
+        previousStatus = status;
+    }
+
+    window.addEventListener('online', () => updateSignalStatus('online'));
+    window.addEventListener('offline', () => updateSignalStatus('offline'));
+    updateSignalStatus(previousStatus);
+});
 </script> 
 
 </body>

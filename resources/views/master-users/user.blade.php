@@ -10,7 +10,7 @@
             </div> --}}
             <div class="card">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">DATA TABLE USER</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">TABLE USER</h6>
                     {{-- @if ($user->UserRole->RoleName == 'admin') --}}
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-info shadow-sm btn-sm" data-bs-toggle="modal"
@@ -26,7 +26,7 @@
                     @if (session()->exists('alert'))
                         <div class="alert alert-{{ session()->get('alert') ['bg'] }} alert-dismissible fade show" role="alert">
                             {{ session()->get('alert') ['message'] }}
-                            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
@@ -37,7 +37,7 @@
                             @foreach ($errors->all() as $error )
                                 {{ $error }}
                             @endforeach
-                            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
@@ -81,35 +81,35 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-group form-floating form-floating mb-3">
-                        <input type="text" class="form-control" name="Username" placeholder="Input Username" value="{{ old('Username') }}" >
+                        <input type="text" class="form-control" name="Username" placeholder="Input Username" value="{{ old('Username') }}" required>
                         <label for="">Username*</label>
                         @error('Username')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group form-floating mb-3">
-                        <input type="text" class="form-control" name="PasswordHash" placeholder="Input Password">
+                        <input type="text" class="form-control" name="PasswordHash" placeholder="Input Password" required>
                         <label for="">Password*</label>
                         @error('PasswordHash')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group form-floating mb-3">
-                        <input type="text" class="form-control" name="NameIdentifier" placeholder="Masukan Nama Lengkap" value="{{ old('NameIdentifier') }}" >
+                        <input type="text" class="form-control" name="NameIdentifier" placeholder="Masukan Nama Lengkap" value="{{ old('NameIdentifier') }}" required>
                         <label for="">Nama Lengkap*</label>
                         @error('NameIdentifier')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group form-floating mb-3">
-                        <input type="email" class="form-control" name="Email" placeholder="eyx@example.com" value="{{ old('Email') }}" >
+                        <input type="email" class="form-control" name="Email" placeholder="eyx@example.com" value="{{ old('Email') }}" required>
                         <label for="">Email*</label>
                         @error('Email')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group form-floating mb-3">
-                        <input type="number" min="0" class="form-control" name="PhoneNumber" placeholder="628123456789" value="{{ old('PhoneNumber') }}" >
+                        <input type="number" min="0" class="form-control" name="PhoneNumber" placeholder="628123456789" value="{{ old('PhoneNumber') }}"required>
                         <label for="">Phone*</label>
                     </div>
                     {{-- <div class="form-group form-floating mb-3">

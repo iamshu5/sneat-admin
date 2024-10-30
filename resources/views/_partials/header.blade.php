@@ -8,9 +8,14 @@
     <title>{{ $title }} - System</title>
 
     {{-- Loading --}}
-    <link rel="stylesheet" href="assets/css/loading.css">
+    <link rel="stylesheet" href="{{ url('assets/css/loading.css') }}">
 
     <meta name="description" content="" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url('assets/img/favicon/favicon.ico') }}" />
@@ -40,6 +45,13 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ url('assets/js/config.js') }}"></script>
+
+    <!-- Styles -->
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" /> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <!-- Or for RTL support -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
   </head>
 
   <body>
@@ -146,7 +158,7 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
             <!-- Users -->
             <li class="menu-item  {{ $title === 'Users' ? 'active' : '' }}">
-              <a href="{{ url('/user') }}" class="menu-link">
+              <a href="{{ url('/Manage/User') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Users</div>
               </a>
@@ -175,16 +187,18 @@
             <i class='bx bx-time' ></i> <span class="ml-md-3 font-italic fw-bold" id="clock-realtime"> <?= date('Y-m-d H:i:s') ?> </span>
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
-                <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                  John Doe
+                  John Doe |
                 </li>
 
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <div class="avatar avatar-online">
-                      <img src="{{ url('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                    <div class="avatar">
+                      <img src="{{ url('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle shadow" />
+                      <span id="signal-indicator" class="position-absolute" 
+                          style="width: 12px; height: 12px; right: -2px; bottom: -2px; background-color: #28a745; border-radius: 50%; border: 2px solid #fff;">
+                      </span>
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -192,8 +206,8 @@
                       <a class="dropdown-item" href="{{ url('#') }}">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
-                            <div class="avatar avatar-online">
-                              <img src="{{ url('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                            <div class="avatar">
+                              <img src="{{ url('assets/img/avatars/1.png') }}" class="w-px-40 h-auto rounded-circle shadow" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -208,23 +222,17 @@
                     </li>
                     <li>
                       <a class="dropdown-item" href="{{ url('#') }}">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{{ url('#') }}">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
+                        <i class="bx bx-key me-2"></i>
+                        <span class="align-middle">Reset Password</span>
                       </a>
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item bg-danger text-white" href="{{ url('/Auth/Login') }}">
+                      <a class="dropdown-item bg-danger rounded text-white" href="{{ url('/Auth/Login') }}">
                         <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
+                        <span class="align-middle">Logout</span>
                       </a>
                     </li>
                   </ul>

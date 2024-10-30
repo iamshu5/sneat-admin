@@ -18,4 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/Auth/Login', fn() => view('login'));
-Route::get('/user', fn() => view('master-users.user'));
+Route::get('/Manage/User', fn() => view('master-users.user'));
+
+Route::middleware('auth')->group(function() {
+    
+});
