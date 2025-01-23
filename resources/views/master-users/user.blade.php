@@ -80,7 +80,7 @@
             <form action="{{ url('/create/users') }}" enctype="multipart/form-data" method="post">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-group form-floating form-floating mb-3">
+                    <div class="form-group form-floating mb-3">
                         <input type="text" class="form-control" name="Username" placeholder="Input Username" value="{{ old('Username') }}" required>
                         <label for="">Username*</label>
                         @error('Username')

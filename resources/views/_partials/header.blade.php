@@ -221,10 +221,10 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ url('#') }}">
+                      <a class="dropdown-item" href="{{ url('#resetPasswordModal') }}" class="btn btn-outline-dark mx-3 mt-2 d-block reset-password-btn" data-user-id="" data-bs-toggle="modal">
                         <i class="bx bx-key me-2"></i>
                         <span class="align-middle">Reset Password</span>
-                      </a>
+                      </a>                    
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
@@ -242,6 +242,41 @@
             </div>
           </nav>
           <!-- / Navbar -->
+
+          <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="ti ti-key"></i> Reset Password
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="resetPasswordForm" method="POST">
+                            @csrf
+                            <div class="mb-3 form-group form-floating">
+                              <input type="password" class="form-control" id="currentPassword" name="currentPassword" placeholder="Current Password" required>
+                              <label for="currentPassword">Current Password</label>
+                            </div>
+                            <div class="mb-3 form-group form-floating">
+                              <input type="password" class="form-control" id="PasswordHash" name="PasswordHash" placeholder="New Password" required>
+                              <label for="newPassword">New Password</label>
+                            </div>
+                            <div class="mb-3 form-group form-floating">
+                              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm New Password" required>
+                              <label for="confirmPassword">Confirm New Password</label>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                              <button type="submit" class="btn btn-danger">Reset Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+          </div>
 
           <!-- Content wrapper -->
           <div class="content-wrapper">

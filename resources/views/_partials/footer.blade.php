@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (previousStatus === 'offline') {
                 Swal.fire({
-                    title: "Internert Terhubung Kembali",
+                    title: "Internet Terhubung Kembali",
                     text: "Kembali Online!",
                     icon: "success",
                     showConfirmButton: false,
