@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ url('assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ url('assets/img/favicon/favicon-ati.png') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -90,15 +90,17 @@
                 </a>
             </li>
             <!-- Pages -->
-            <li class="menu-item {{ in_array($title, ['AUAH', 'lanjutin title ini']) ? 'active open' : '' }}">
+            <li class="menu-item {{ in_array($title, ['Users', 'lanjutin title ini']) ? 'active open' : '' }}">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">Account Settings</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item {{ $title == 'AUAH' ? 'active' : '' }}">
-                  <a href="{{ url('#') }}" class="menu-link">
-                    <div data-i18n="Account">AUAH</div>
+                <!-- Users -->
+                <li class="menu-item  {{ $title === 'Users' ? 'active' : '' }}">
+                  <a href="{{ url('/Manage/User') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-user-account"></i>
+                    <div data-i18n="Basic">Manage Users</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -156,13 +158,7 @@
             </li>
             <!-- Components -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
-            <!-- Users -->
-            <li class="menu-item  {{ $title === 'Users' ? 'active' : '' }}">
-              <a href="{{ url('/Manage/User') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Users</div>
-              </a>
-            </li>
+            
             <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
 

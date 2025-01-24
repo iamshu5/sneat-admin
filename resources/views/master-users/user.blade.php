@@ -10,7 +10,7 @@
             </div> --}}
             <div class="card">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">TABLE USER</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="menu-icon tf-icons bx bxs-user-account"></i> TABLE USER</h6>
                     {{-- @if ($user->UserRole->RoleName == 'admin') --}}
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-info shadow-sm btn-sm" data-bs-toggle="modal"
@@ -71,7 +71,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title" id="exampleModalLabel">Form Tambah User</h1>
+                <h1 class="modal-title" id="exampleModalLabel"><i class="menu-icon tf-icons bx bxs-user-account"></i> Form Tambah User</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
